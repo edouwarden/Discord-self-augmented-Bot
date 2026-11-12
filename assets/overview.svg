@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680" role="img" aria-labelledby="title desc">
+  <title id="title">Discord-self-augmented-Bot architecture</title>
+  <desc id="desc">A message in Discord goes to an LLM through main.py, which posts a code block. A human reacts with a check mark, the generated file is backed up, imported and reloaded, and the bot keeps running with the new behaviour.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080d19"/>
+      <stop offset="0.55" stop-color="#0b1222"/>
+      <stop offset="1" stop-color="#10172b"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#131d31"/>
+      <stop offset="1" stop-color="#0f1728"/>
+    </linearGradient>
+    <linearGradient id="discordGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5865f2"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 H0 V40" fill="none" stroke="#334155" stroke-width="1" opacity="0.18"/>
+    </pattern>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#818cf8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <style>
+    .title { font: 700 34px Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; fill: #f8fafc; letter-spacing: -0.6px; }
+    .subtitle { font: 400 15px Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; fill: #94a3b8; }
+    .card-title { font: 600 17px Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; fill: #f1f5f9; }
+    .card-sub { font: 400 12px Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; fill: #7c8aa5; }
+    .body { font: 400 13.5px Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; fill: #cbd5e1; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; fill: #cbd5e1; }
+    .small { font-size: 12px; }
+    .tiny { font-size: 11px; }
+    .muted { fill: #7c8aa5; }
+    .green { fill: #34d399; }
+    .amber { fill: #fbbf24; }
+    .violet { fill: #a78bfa; }
+    .cyan { fill: #22d3ee; }
+    .blurple { fill: #818cf8; }
+    .flow { stroke-dasharray: 6 7; animation: dash 1.6s linear infinite; }
+    .pulse { animation: pulse 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .pill { fill: #0c1525; stroke: #26334d; }
+    @keyframes dash { to { stroke-dashoffset: -26; } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+    @media (prefers-reduced-motion: reduce) {
+      .flow, .pulse { animation: none; }
+    }
+  </style>
+
+  <rect width="1200" height="680" rx="26" fill="url(#bg)"/>
+  <rect width="1200" height="680" rx="26" fill="url(#grid)"/>
+  <ellipse cx="170" cy="120" rx="260" ry="180" fill="#5865f2" opacity="0.10"/>
+  <ellipse cx="1030" cy="540" rx="300" ry="220" fill="#8b5cf6" opacity="0.08"/>
+
+  <text x="60" y="66" class="title">Discord-self-augmented-<tspan class="blurple">Bot</tspan></text>
+  <text x="60" y="96" class="subtitle">The bot rewrites its own behaviour from a chat message</text>
+
+  <!-- Discord card -->
+  <rect x="60" y="150" width="300" height="330" rx="18" fill="url(#card)" stroke="#243149"/>
+  <circle cx="90" cy="184" r="7" fill="url(#discordGlow)" class="pulse"/>
+  <text x="108" y="190" class="card-title">Discord</text>
+  <text x="90" y="214" class="card-sub">private server · friends</text>
+  <line x1="84" y1="230" x2="336" y2="230" stroke="#243149"/>
+
+  <rect x="84" y="246" width="252" height="40" rx="10" fill="#0a1120" stroke="#2b3a57"/>
+  <text x="98" y="271" class="mono small blurple">$add bubbles for maya</text>
+
+  <rect x="84" y="300" width="252" height="92" rx="10" fill="#0a1120" stroke="#2b3a57"/>
+  <text x="98" y="324" class="mono tiny"><tspan class="violet">async def</tspan> main(client):</text>
+  <text x="98" y="344" class="mono tiny">    @client.event</text>
+  <text x="98" y="364" class="mono tiny">    async def on_message(m):</text>
+  <text x="98" y="384" class="mono tiny muted">        ...</text>
+
+  <rect x="84" y="404" width="150" height="26" rx="13" fill="#0f2a24" stroke="#1f5144"/>
+  <circle cx="100" cy="417" r="6" fill="#134e3a" stroke="#34d399" stroke-width="1.2"/>
+  <path d="M97.2 417.2 l2 2 l3.4 -4.2" fill="none" stroke="#34d399" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="112" y="421" class="tiny green">reacted by a human</text>
+
+  <text x="90" y="456" class="body small"><tspan class="muted">the check mark is the gate</tspan></text>
+
+  <!-- main.py card -->
+  <rect x="450" y="130" width="300" height="380" rx="18" fill="url(#card)" stroke="#243149"/>
+  <circle cx="480" cy="164" r="7" fill="#22d3ee" class="pulse"/>
+  <text x="498" y="170" class="card-title">main.py</text>
+  <text x="480" y="194" class="card-sub">the bot that stays put</text>
+  <line x1="474" y1="210" x2="726" y2="210" stroke="#243149"/>
+
+  <text x="480" y="244" class="body"><tspan class="green">✓</tspan> read generated_code.py</text>
+  <text x="480" y="278" class="body"><tspan class="green">✓</tspan> prompt the model</text>
+  <text x="480" y="312" class="body"><tspan class="green">✓</tspan> post the code block</text>
+  <text x="480" y="346" class="body"><tspan class="green">✓</tspan> ast check + backup</text>
+  <text x="480" y="380" class="body"><tspan class="green">✓</tspan> reload, or roll back</text>
+
+  <rect x="474" y="410" width="252" height="38" rx="9" fill="#0a1120" stroke="#2b3a57"/>
+  <text x="488" y="434" class="mono tiny muted">on_message router</text>
+
+  <rect x="474" y="462" width="180" height="16" rx="8" fill="#0c2530"/>
+  <text x="484" y="474" class="tiny cyan">commands survive reloads</text>
+
+  <!-- generated_code.py card -->
+  <rect x="840" y="150" width="300" height="330" rx="18" fill="url(#card)" stroke="#243149"/>
+  <circle cx="870" cy="184" r="7" fill="#a78bfa" class="pulse"/>
+  <text x="888" y="190" class="card-title">generated_code.py</text>
+  <text x="870" y="214" class="card-sub">the behaviour that changes</text>
+  <line x1="864" y1="230" x2="1116" y2="230" stroke="#243149"/>
+
+  <text x="870" y="264" class="body"><tspan class="violet">async def</tspan> main(client)</text>
+  <text x="870" y="298" class="body">@client.event handlers</text>
+  <text x="870" y="332" class="body">webhook impersonation</text>
+  <text x="870" y="366" class="body">any Python the model writes</text>
+
+  <rect x="864" y="400" width="196" height="16" rx="8" fill="#1d1739"/>
+  <text x="874" y="412" class="tiny violet">in-process · no sandbox</text>
+
+  <text x="870" y="452" class="body small muted">old versions kept as backup</text>
+
+  <!-- Arrows -->
+  <path d="M360 315 H444" fill="none" stroke="#475569" stroke-width="2" class="flow" marker-end="url(#arrowBlue)"/>
+  <text x="402" y="301" text-anchor="middle" class="tiny muted">prompt</text>
+  <circle r="4" fill="#818cf8">
+    <animateMotion dur="2.4s" repeatCount="indefinite" path="M360 315 H444"/>
+  </circle>
+
+  <path d="M750 315 H834" fill="none" stroke="#475569" stroke-width="2" class="flow" marker-end="url(#arrowBlue)"/>
+  <text x="792" y="301" text-anchor="middle" class="tiny muted">code</text>
+  <circle r="4" fill="#818cf8">
+    <animateMotion dur="2.4s" repeatCount="indefinite" path="M750 315 H834"/>
+  </circle>
+
+  <!-- Reload loop -->
+  <path d="M990 480 V545 H210 V480" fill="none" stroke="#475569" stroke-width="2" class="flow" marker-start="url(#arrowAmber)" marker-end="url(#arrowGreen)"/>
+  <text x="600" y="568" text-anchor="middle" class="tiny muted">write, import, run · the same process keeps going</text>
+  <circle r="4" fill="#fbbf24">
+    <animateMotion dur="4.8s" repeatCount="indefinite" path="M990 480 V545 H210 V480"/>
+  </circle>
+
+  <!-- Bottom pills -->
+  <g class="tiny">
+    <rect x="60" y="606" width="286" height="34" rx="17" class="pill"/>
+    <text x="78" y="628" class="body small"><tspan class="green">●</tspan>  ast check + rollback</text>
+
+    <rect x="362" y="606" width="326" height="34" rx="17" class="pill"/>
+    <text x="380" y="628" class="body small"><tspan class="cyan">●</tspan>  any OpenAI-compatible model</text>
+
+    <rect x="704" y="606" width="436" height="34" rx="17" class="pill"/>
+    <text x="722" y="628" class="body small"><tspan class="amber">●</tspan>  anyone in the channel can approve · archived</text>
+  </g>
+
+  <text x="1140" y="666" text-anchor="end" class="tiny muted">MIT · archived</text>
+</svg>
